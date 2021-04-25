@@ -3,14 +3,10 @@ import 'package:dev_quiz/core/app_images.dart';
 import 'package:dev_quiz/core/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-
-class ResultQuestSucessPage extends StatelessWidget {
- 
-
-  const ResultQuestSucessPage(
-      {Key? key,
-     })
-      : super(key: key);
+class ResultQuestErrorPage extends StatelessWidget {
+  const ResultQuestErrorPage({
+    Key? key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,22 +17,24 @@ class ResultQuestSucessPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(AppImages.check),
+            Padding(
+              padding: const EdgeInsets.only(top: 90),
+              child: Image.asset(AppImages.check),
+            ),
             Column(
               children: [
-                Text(
-                  "Acertou!",
-                  style: AppTextStyles.heading40,
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Text(
+                    "Acertou!",
+                    style: AppTextStyles.heading40,
+                  ),
                 ),
                 SizedBox(height: 16),
                 Text.rich(
                   TextSpan(
+                    text: "Resposta Correta",
                     style: AppTextStyles.body,
-                    children: [
-                      TextSpan(text: " "),
-                      TextSpan(
-                          text: " "),
-                    ],
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -48,7 +46,8 @@ class ResultQuestSucessPage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 68),
+                        padding: const EdgeInsets.only(
+                            left: 45, right: 45, bottom: 150),
                         child: NextButtonWidget.puple(
                           label: "Avançar",
                           onTap: () {
